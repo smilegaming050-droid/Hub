@@ -2,6 +2,8 @@ script_key = "GJDZpgeTXXkxlubRVfzBbXuYOMSzfFcr"
 getgenv().Config = {
     FARM_MODE = "BattlePass", -- BattlePass / Crate
     AUTO_RESTART_WHEN_UPDATE = true,
+    HOP_WHEN_COIN_EARNED_LOWER = 250,
+    TIME_TO_CHECK_COIN_EARNED = 1800,
     DISPLAY_UI = true,
     STOP_AUTO_BUY_FINAL_REWARD = false, -- Stop auto buy Godly Item when completed Battle Pass
     WEBHOOK_URL = "https://discord.com/api/webhooks/1363374518621569024/bpL0taxsp6joICDRMqNBlAKdbqrIpbqAZzKR1vPBTrC87zctTr0KF25tqky9sS1wUvja",
@@ -24,4 +26,5 @@ task.spawn(function()
 end)
 
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/8b381051c5e99846fe64dcea7d597e49.lua"))()
+
 
