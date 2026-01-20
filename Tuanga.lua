@@ -1,7 +1,7 @@
 script_key = "GJDZpgeTXXkxlubRVfzBbXuYOMSzfFcr"
 getgenv().Config = {
     LOCK_FPS = 3, -- Only work in Web Version
-    FARM_MODE = "BattlePass", -- BattlePass / Crate
+    FARM_MODE = "Crate", -- BattlePass / Crate
     AUTO_RESTART_WHEN_UPDATE = true,
     HOP_WHEN_COIN_EARNED_LOWER = 250,
     TIME_TO_CHECK_COIN_EARNED = 1800,
@@ -27,6 +27,7 @@ task.spawn(function()
 end)
 
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/8b381051c5e99846fe64dcea7d597e49.lua"))()
+
 
 
 
