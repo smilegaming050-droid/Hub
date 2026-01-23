@@ -1,33 +1,41 @@
-script_key = "GJDZpgeTXXkxlubRVfzBbXuYOMSzfFcr"
-getgenv().Config = {
-    LOCK_FPS = 3, -- Only work in Web Version
-    FARM_MODE = "Crate", -- BattlePass / Crate
-    AUTO_RESTART_WHEN_UPDATE = true,
-    HOP_WHEN_COIN_EARNED_LOWER = 250,
-    TIME_TO_CHECK_COIN_EARNED = 1800,
-    DISPLAY_UI = true,
-    STOP_AUTO_BUY_FINAL_REWARD = false, -- Stop auto buy Godly Item when completed Battle Pass
-    WEBHOOK_URL = "https://discord.com/api/webhooks/1363374518621569024/bpL0taxsp6joICDRMqNBlAKdbqrIpbqAZzKR1vPBTrC87zctTr0KF25tqky9sS1wUvja",
-    WEBHOOK_NOTE = "https://discord.com/api/webhooks/1363374518621569024/bpL0taxsp6joICDRMqNBlAKdbqrIpbqAZzKR1vPBTrC87zctTr0KF25tqky9sS1wUvja"
+script_key="EYNYVILOhxdemvYYUUkDKavKojUNqYPA";
+setfpscap(5)
+getgenv().tapSimConfig = {
+    AUTO_UPDATE_RESTART = true,
+    MAX_REBIRTH = math.huge,
+    OPEN_EGG = { "Lightning Event" },
+    BUY_GAMEPASS = { "SecretHunter", "MagicEggs", "x8Egg", "+4Equip", "+2Equip", "SuperLucky", "FasterEgg", "Luck", "Storage2", "Storage1" },
+    BUY_LIMITED_TIER_STORE_SECRET = false,  -- only buy if can afford all tiers
+    FOCUS_EVENT_HATCH = true,  -- must have event egg in OPEN_EGG, focus event hatch if enough clicks
+
+    BUY_AUTO_CLICKER = true,
+    OPEN_ALL_GIFT = true,
+    BUY_GEM_SHOP = { 
+        ["RebirthButtons"] = 34, 
+        ["ClickMultiplier"] = 20, 
+        ["HatchSpeed"] = 5, 
+        ["GoldenLuck"] = 6, 
+        ["CriticalChance"] = 5, 
+        ["AutoClickerSpeed"] = 0, 
+        ["DoubleJumps"] = 0 
+    },
+
+    AUTO_DELETE_EGG_PET = { 
+        ["Lightning Event"] = { "Sparky", "Charged Dino", "Electric Slime" },
+    },
+    HATCH_1000_QUEST = false,
+    KEEP_PET_NAME = { }, 
+    KEEP_PET_RARITY = { "Secret I", "Secret II", "Secret III" },
+    GOLDEN_PET = { },  -- ["Pet Name"] = 6 
+    RAINBOW_PET = { },  -- ["Pet Name"] = 5
+    USE_BOOST = { },  -- "Boost Name"
+
+    WEBHOOK_PET_RARITY = { "Secret I", "Secret II", "Secret III" },
+    WEBHOOK_URL = "",
+    DISCORD_ID = "",
+    SHOW_PUBLIC_DISCORD_ID = true,
+    SHOW_WEBHOOK_USERNAME = true,
+    SHOW_WEBHOOK_JOBID = true,
 }
 
-task.spawn(function()
-    local LastCheck = tick()
-    while task.wait() do
-        if getgenv().ScriptLoaded then
-            break
-        end
-
-        pcall(function()
-            if LastCheck + 180 <= tick() then
-                game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-            end
-        end)
-    end
-end)
-
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/8b381051c5e99846fe64dcea7d597e49.lua"))()
-
-
-
-
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/ffab66f7d96a48c13b12e526b19b37d4.lua"))()
