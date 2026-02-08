@@ -2,25 +2,28 @@ script_key="iCHRRpBAVEkaIEUWxsLPyKtcjTffnNrH";
 setfpscap(5)
 getgenv().tapSimConfig = {
     -- Event Config
-    ELECTRIC_PET = {},  -- ["Pet Name"] = 3 
-    STABLE_HATCH = false,  -- set true if have 0hpm bug
-    BUY_SECRET_STARTER_PLAZA_PACK = false, -- only buy if can afford 2x purchase
+    CRAFT_EASY_KEY = true,
+    CRAFT_HARD_KEY = true,
+    OPEN_GALAXY_LUCKY_BLOCK = true,
+    CREATE_LUCKY_BLOCK = { "Weather Lucky Block", "Wisdom Lucky Block", "Starry Lucky Block", "Totem Lucky Block", "Lucky Block" },
+    USE_LUCKY_BLOCK = { "Weather Lucky Block", "Wisdom Lucky Block", "Starry Lucky Block", "Totem Lucky Block", "Lucky Block" },
+    FIND_ALL_BLOCK_ESSENCE = true,
 
     -- General Config
     AUTO_UPDATE_RESTART = true,
+    STABLE_HATCH = false,  -- uses game hatch delay
     AUTO_EQUIP_BEST = true,
     ADD_FRIEND = true,
     MAX_REBIRTH = math.huge,
-    REBIRTH_DELAY = 30,  -- Seconds
+    REBIRTH_DELAY = 120,  -- Seconds
     REDEEM_CODE = { "russo", "lucky", "tacos", "enchant", "HTH" },
-    OPEN_EGG = { "Lightning Event" },
-    FOCUS_EVENT_HATCH = true,  -- must have event egg in OPEN_EGG, focus event hatch if enough clicks
-    UNLOCK_WORLD_1_BEST_EGG = true,
+    OPEN_EGG = { "Lunar", "Lucky Event" },
     UNLOCK_WORLD_2_BEST_EGG = false,  -- change true if farm best egg, false if event egg
 
     BUY_GAMEPASS = { "SecretHunter", "MagicEggs", "x8Egg", "+4Equip", "+2Equip", "SuperLucky", "FasterEgg", "Luck", "Storage2", "Storage1" },
     BUY_AUTO_CLICKER = true,
     OPEN_ALL_GIFT = true,
+    BUY_MERCHANT = {},
     BUY_GEM_SHOP = { 
         ["RebirthButtons"] = 34, 
         ["ClickMultiplier"] = 20, 
@@ -44,16 +47,19 @@ getgenv().tapSimConfig = {
     },
 
     AUTO_DELETE_EGG_PET = { 
-        ["Lightning Event"] = { "Sparky", "Charged Dino", "Electric Slime", "Tesla Bot" },
+        ["Lunar"] = { "Lunar Alien", "Eclipse Fox", "Moon Explorer", "Eclipse Hydra" },
+        ["Lucky Event"] = { "Yellow Luckyblock", "Blue Luckyblock", "Lucky Fairy", "Lucky Angel" },
     },
     KEEP_PET_NAME = { }, 
-    KEEP_PET_RARITY = { "Secret I", "Secret II", "Secret III" },
-    GOLDEN_PET = { ["Electric Glitch"] = 6 },  -- ["Pet Name"] = 6 
-    RAINBOW_PET = { },  -- ["Pet Name"] = 5
+    KEEP_PET_RARITY = { "Secret I", "Secret II", "Secret III", "Secret X" },
+    GOLDEN_PET = { ["Prismatic Luckyblock"] = 6 },  -- ["Pet Name"] = 6 
+    RAINBOW_PET = { ["Prismatic Luckyblock"] = 5 },  -- ["Pet Name"] = 5
+    USE_ALL_POTIONS = true,
     USE_BOOST = { },  -- "Boost Name"
+    USE_TOTEM = { "TotemOfClicks", "TotemOfHatchSpeed", "TotemOfLuck", "TotemOfRebirths", "TotemOfSecretLuck" },
 
     -- Webhook
-    WEBHOOK_PET_RARITY = { "Secret I", "Secret II", "Secret III" },
+    WEBHOOK_PET_RARITY = { "Secret I", "Secret II", "Secret III", "Secret X" },
     WEBHOOK_URL = "",
     DISCORD_ID = "",
     SHOW_PUBLIC_DISCORD_ID = true,
