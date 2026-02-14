@@ -1,52 +1,28 @@
+script_key = "WmnNeMSxCmBTkiYskYKcVZavKAJjdEut"
 getgenv().Config = {
-    ["Auto Hop"] = {
-        ["Enable"] = false,
-        ["Job Id"] = "job jd ở đây",
-    },
-
-    ["Load Atlas Config"] = false,
-    ["Link Wh"] = "https://discord.com/api/webhooks/1379421464108863508/1u-d-PZRWOab_3tsWnkXmE7gQLE5Ihd4xMwTVbTpBYH44P-sNpIOD4jhp8uZfR5yNOd5",
-    ["Ping Id"] = "765845940074053633",
-    ["Auto Change Acc"] = true,
-    ["Check Quest"] = true,
-    ["Auto Feed"] = {
-        ["Enable"] = true,
-        ["Bee Amount"] = 7,
-        ["Bee Level"] = 7,
-        ["Auto Buy Treat"] = true,
-        ["Bee Food"] = {
-            Treat = true,
-            Neonberry = true,
-            MoonCharm = true,
-            GingerbreadBear = true,
-            Bitterberry = true,
-            Pineapple = true,
-            Strawberry = true,
-            Blueberry = true,
-            SunflowerSeed = true
-        }
-    },
-    ["Auto Hatch"] = {
-        ["Enable"] = true,
-        ["Egg Hatch"] = {
-            "Basic",
-            "Silver",
-            "Gold",
-            "Diamond"
-        }
-    },
-    ["Auto Printer"] = {
-        ["Enable"] = true
-    },
-    ["Auto Buy Egg Ticket"] = true,
-    ["Auto Delete"] = {
-        ["Enable"] = true,
-        ["KeepKeywords"] = {
-            "star sign",
-            "nessie",
-            "star cub"
-        }
-    }
+    LOCK_FPS = 3, -- Only work in Web Version
+    FARM_MODE = "Crate", -- Crate Only
+    AUTO_RESTART_WHEN_UPDATE = true,
+    HOP_WHEN_COIN_EARNED_LOWER = 250,
+    TIME_TO_CHECK_COIN_EARNED = 1800,
+    DISPLAY_UI = true,
+    WEBHOOK_URL = "",
+    WEBHOOK_NOTE = ""
 }
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/junggamyeon/MyScript/refs/heads/main/obfuscated_message.lua"))()
+task.spawn(function()
+    local LastCheck = tick()
+    while task.wait() do
+        if getgenv().ScriptLoaded then
+            break
+        end
+
+        pcall(function()
+            if LastCheck + 180 <= tick() then
+                game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+            end
+        end)
+    end
+end)
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/8b381051c5e99846fe64dcea7d597e49.lua"))()
