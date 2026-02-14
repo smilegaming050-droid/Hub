@@ -11,7 +11,7 @@ getgenv().Config = {
     AUTO_CHANGE = { -- Auto change when account cant farm valentines coins
         YUMMY_TOOL = {
             ENABLED = true,
-            NAME_FILE = "done" -- if u want file name is "done.txt" just write "done"
+            NAME_FILE = "accdone" -- if u want file name is "done.txt" just write "done"
         },
         FARM_SYNC = {
             ENABLED = false,
@@ -38,3 +38,4 @@ task.spawn(function()
 end)
 
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/8b381051c5e99846fe64dcea7d597e49.lua"))()
+
