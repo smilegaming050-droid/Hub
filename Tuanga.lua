@@ -1,4 +1,4 @@
-script_key = "WmnNeMSxCmBTkiYskYKcVZavKAJjdEut"
+script_key = "xIjwLVbIXLZqLyHFdWubPkvCunLvszBR"
 getgenv().Config = {
     LOCK_FPS = 3, -- Only work in Web Version
     FARM_MODE = "Crate", -- Crate Only
@@ -45,3 +45,4 @@ task.spawn(function()
 end)
 
 loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/0e38c9f962f6e016372a764db6595b22.lua"))()
+
