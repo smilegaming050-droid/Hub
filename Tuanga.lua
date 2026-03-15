@@ -1,266 +1,47 @@
-task.spawn(function()
-    while true do
-        pcall(function()
-            settings().Rendering.FrameRateManager = Enum.FramerateManagerMode.Automatic
-            setfpscap(14)
-        end)
-        task.wait(5)
-    end
-end)
-spawn(function()
-    _G.Config = { 
-        UserID = "3f3fb26b-c3b5-4cd2-b7e3-4f8bba14fe23",
-        discord_id = "765845940074053633" ,
-        Note = "SAB", } 
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/yummytrack/main/tracker"))()
-end)
-getgenv().Key = "k95ddc41475e8187e19c06c6"
+script_key = "eqGWMrpcdLmovHGYkDDQOanjLtCsBoPy"
 getgenv().Config = {
-    ["Gameplay"] = {
-        ["Server Type"] = "Private (Clone)",
-
-        -- Private Server config
-        ["Collect Cash Cap"] = "1000B",
-
-        -- Public Server config
-        ["Max Auctioning Multiplier"] = 10,
-        ["Lock Base Extra Time"] = 5,
-    },
-
-    ["Misc"] = {
-        ["Kick if FPS below"] = 1,
-        ["Kick if Ping above"] = 100000,
-        ["Max Rebirth"] = 9,
-        ["Ignore Secret"] = {
-            ["La Vacca Saturno Saturnita"] = { "All" },
-            ["Karkerkar Kurkur"] = { "All" },
-            ["Sammyni Spyderini"] = { "All" },
-            ["Extinct Tralalero"] = { "All" },
-            ["Extinct Matteo"] = { "All" },
-            ["Dul Dul Dul"] = { "All" },
-            ["Chachechi"] = { "All" },
-            ["Los Tralaleritos"] = { "All" },
-            ["Las Tralaleritas"] = { "All" },
-            ["La Cucaracha"] = { "All" },
-            ["Job Job Job Sahur"] = { "All" },
-            ["Frankentteo"] = { "All" },
-            ["Graipuss Medussi"] = { "All" },
-            ["Zombie Tralala"] = { "All" },
-            ["Perrito Burrito"] = { "All" },
-            ["To to to Sahur"] = { "All" },
-            ["Guerriro Digitale"] = { "All" },
-            ["Coffin Tung Tung Tung Sahur"] = { "All" },
-            ["Nooo My Hotspot"] = { "All" },
-            ["La Grande Combinasion"] = { "All" },
-            ["Chicleteira Bicicleteira"] = { "All" },
-            ["Chimnino"] = { "All" },
-            ["Bunnyman"] = { "All" },
-            ["Please my Present"] = { "All" },
-            ["Reindeer Tralala"] = { "All" },
-            ["La Vacca Prese Presente"] = { "All" },
-            ["Ho Ho Ho Sahur"] = { "All" },
-            ["List List List Sahur"] = { "All" },
-            ["Bisonte Giuppitere"] = { "All" },
-            ["Blackhole Goat"] = { "All" },
-            ["Chicleteirina Bicicleteirina"] = { "All" },
-            ["Chimpanzini Spiderini"] = { "All" },
-            ["Cuadramat and Pakrahmatmamat"] = { "All" },
-            ["Donkeyturbo Express"] = { "All" },
-            ["Giftini Spyderini"] = { "All" },
-            ["Horegini Boom"] = { "All" },
-            ["Jackorilla"] = { "All" },
-            ["Jolly Jolly Sahur"] = { "All" },
-            ["Karker Sahur"] = { "All" },
-            ["La Vacca Jacko Linterino"] = { "All" },
-            ["Los Chicleteiras"] = { "All" },
-            ["Los Cucarachas"] = { "All" },
-            ["Los Hotspotsitos"] = { "All" },
-            ["Los Jobcitos"] = { "All" },
-            ["Los Karkeritos"] = { "All" },
-            ["Los Matteos"] = { "All" },
-            ["Los Mobilis"] = { "All" },
-            ["Los Nooo My Hotspotsitos"] = { "All" },
-            ["Los Planitos"] = { "All" },
-            ["Los Quesadillas"] = { "All" },
-            ["Los Spyderinis"] = { "All" },
-            ["Los Tortus"] = { "All" },
-            ["Naughty Naughty"] = { "All" },
-            ["Noo my Candy"] = { "All" },
-            ["Noo my examine"] = { "All" },
-            ["Noo my Present"] = { "All" },
-            ["Pirulitoita Bicicleteira"] = { "All" },
-            ["Pot Hotspot"] = { "All" },
-            ["Pot Pumpkin"] = { "All" },
-            ["Pumpkini Spyderini"] = { "All" },
-            ["Quesadilla Crocodila"] = { "All" },
-            ["Rang Ring Bus"] = { "All" },
-            ["Santteo"] = { "All" },
-            ["Santa Hotspot"] = { "All" },
-            ["Torrtuginni Dragonfrutini"] = { "All" },
-            ["Trickolino"] = { "All" },
-            ["Triplito Tralaleritos"] = { "All" },
-            ["Tung Tung Tung Sahur"] = { "All" },
-            ["Vulturino Skeletono"] = { "All" },
-            ["Yess my examine"] = { "All" },
-            ["GOAT"] = { "All" },
-            ["Brunito Marsito"] = {"All"},
-            ["Chill Puppy"] = {"All"},
-            ["Los Trios"] = {"All"},
-	    ["Mi Gatitos"] = {"All"},
-	    ["Luv Luv Luv"] = {"All"},
-	    ["Karkerheart Luvkur"] = {"All"},
-	    ["Love Love Love Sahur"] = {"All"},
-	    ["Cupid Hotspot"] = {"All"},
-	    ["Noo my Heart"] = {"All"},
-	    ["Chicleteira Cupideira"] = {"All"},
-	    ["Cupid Cupid Sahur"] = {"All"},
-            ["Fishboard"] = {"All"},
-            ["Nuclearo Dinossauro"] = {"All"},
-            ["DJ Panda"] = {"All"},
+    LOCK_FPS = 3, -- Only work in Web Version
+    FARM_MODE = "Crate", -- Crate Only
+    AUTO_RESTART_WHEN_UPDATE = true,
+    HOP_WHEN_COIN_EARNED_LOWER = 250,
+    TIME_TO_CHECK_COIN_EARNED = 1800,
+    DISPLAY_UI = true,
+    WEBHOOK_URL = "",
+    WEBHOOK_NOTE = "",
+    AUTO_CHANGE = { -- Auto change when account cant farm valentines coins
+        WAIT_UNTIL_LEVEL_10_WHEN_HAVE_GODLY_ITEMS = true, -- If account have godly items, wait until level 10 to change [because level 10 is required to trade items]
+        TIME_TO_CHANGE = 60, -- Time to change after meet condition
+        YUMMY_TOOL = {
+            ENABLED = true
         },
-
-        ["Auto Fuse"] = {
-            ["Enable"] = false,
-            ["Fuse Animal"] = {
-                ["La Vacca Saturno Saturnita"] = { "All" },
-                ["Karkerkar Kurkur"] = { "All" },
-                ["Sammyni Spyderini"] = { "All" },
-                ["Extinct Tralalero"] = { "All" },
-                ["Extinct Matteo"] = { "All" },
-                ["Dul Dul Dul"] = { "All" },
-                ["Chachechi"] = { "All" },
-                ["Los Tralaleritos"] = { "All" },
-                ["Las Tralaleritas"] = { "All" },
-                ["La Cucaracha"] = { "All" },
-                ["Job Job Job Sahur"] = { "All" },
-                ["Frankentteo"] = { "All" },
-                ["Graipuss Medussi"] = { "All" },
-                ["Zombie Tralala"] = { "All" },
-                ["Perrito Burrito"] = { "All" },
-                ["To to to Sahur"] = { "All" },
-                ["Guerriro Digitale"] = { "All" },
-                ["Coffin Tung Tung Tung Sahur"] = { "All" },
-                ["Nooo My Hotspot"] = { "All" },
-                ["La Grande Combinasion"] = { "All" },
-                ["Chicleteira Bicicleteira"] = { "All" },
-                ["Chimnino"] = { "All" },
-                ["Bunnyman"] = { "All" },
-                ["Please my Present"] = { "All" },
-                ["Reindeer Tralala"] = { "All" },
-                ["La Vacca Prese Presente"] = { "All" },
-                ["Ho Ho Ho Sahur"] = { "All" },
-                ["List List List Sahur"] = { "All" },
-                ["Bisonte Giuppitere"] = { "All" },
-                ["Blackhole Goat"] = { "All" },
-                ["Chicleteirina Bicicleteirina"] = { "All" },
-                ["Chimpanzini Spiderini"] = { "All" },
-                ["Cuadramat and Pakrahmatmamat"] = { "All" },
-                ["Donkeyturbo Express"] = { "All" },
-                ["Giftini Spyderini"] = { "All" },
-                ["Horegini Boom"] = { "All" },
-                ["Jackorilla"] = { "All" },
-                ["Jolly Jolly Sahur"] = { "All" },
-                ["Karker Sahur"] = { "All" },
-                ["La Vacca Jacko Linterino"] = { "All" },
-                ["Los Chicleteiras"] = { "All" },
-                ["Los Cucarachas"] = { "All" },
-                ["Los Hotspotsitos"] = { "All" },
-                ["Los Jobcitos"] = { "All" },
-                ["Los Karkeritos"] = { "All" },
-                ["Los Matteos"] = { "All" },
-                ["Los Mobilis"] = { "All" },
-                ["Los Nooo My Hotspotsitos"] = { "All" },
-                ["Los Planitos"] = { "All" },
-                ["Los Quesadillas"] = { "All" },
-                ["Los Spyderinis"] = { "All" },
-                ["Los Tortus"] = { "All" },
-                ["Naughty Naughty"] = { "All" },
-                ["Noo my Candy"] = { "All" },
-                ["Noo my examine"] = { "All" },
-                ["Noo my Present"] = { "All" },
-                ["Pirulitoita Bicicleteira"] = { "All" },
-                ["Pot Hotspot"] = { "All" },
-                ["Pot Pumpkin"] = { "All" },
-                ["Pumpkini Spyderini"] = { "All" },
-                ["Quesadilla Crocodila"] = { "All" },
-                ["Rang Ring Bus"] = { "All" },
-                ["Santteo"] = { "All" },
-                ["Santa Hotspot"] = { "All" },
-                ["Torrtuginni Dragonfrutini"] = { "All" },
-                ["Trickolino"] = { "All" },
-                ["Triplito Tralaleritos"] = { "All" },
-                ["Tung Tung Tung Sahur"] = { "All" },
-                ["Vulturino Skeletono"] = { "All" },
-                ["Yess my examine"] = { "All" },
-                ["GOAT"] = { "All" },
-                ["Brunito Marsito"] = {"All"},
-                ["Chill Puppy"] = {"All"},
-                ["Los Trios"] = {"All"},
-	    	["Mi Gatitos"] = {"All"},
-	        ["Luv Luv Luv"] = {"All"},
-	    	["Karkerheart Luvkur"] = {"All"},
-	    	["Love Love Love Sahur"] = {"All"},
-	    	["Cupid Hotspot"] = {"All"},
-	    	["Noo my Heart"] = {"All"},
-	        ["Chicleteira Cupideira"] = {"All"},
-		["Cupid Cupid Sahur"] = {"All"},
-                ["Fishboard"] = {"All"},
-                ["Nuclearo Dinossauro"] = {"All"},
-                ["DJ Panda"] = {"All"},
+        FARM_SYNC = {
+            ENABLED = false,
+            HAVE_GODLY = { -- folder change when have godly items
+                FOLDER_FROM = "have_godly_folder_id_from",
+                FOLDER_TO = "have_godly_folder_id_to",
             },
-        },
-
-        ["Rare Animal Generation"] = "20M",
-
-        ["Open Lucky Block"] = {
-            "Spooky Lucky Block",
-            "Festive Lucky Block",
-            "Spooky Lucky Block",
-            "Heart Lucky Block",
-            "Taco Lucky Block",
-            "Los Lucky Blocks",
-            "Admin Lucky Block",
-            "Los Taco Blocks",
-
-        },
-
-        ["Buy Lucky Block"] = {
-	    "Heart Lucky Block",
-            "Secret Lucky Block",
-            "Festive Lucky Block",
-            "Spooky Lucky Block",
-            "Taco Lucky Block",
-            "Los Lucky Blocks",
-            "Admin Lucky Block",
-            "Los Taco Blocks",
-
-        },
-    },
-
-    ["Performance"] = {
-        ["Boost FPS"] = true,
-        ["Black Screen"] = true,
-    },
-
-    ["Webhook"] = {
-        ["Enable"] = true,
-        ["Url"] = "https://discord.com/api/webhooks/1420694714423705640/k6Bf2AaSaHHScKSyH0HMgGxbRxszIFwBs5BZ3QmI8wINHi2VF8n3xV342ITrQuk1zESE",
-        ["Ignore Notify"] = {},
-    },
+            NO_GODLY = { -- folder change when no godly items
+                FOLDER_FROM = "no_godly_folder_id_from",
+                FOLDER_TO = "no_godly_folder_id_to",
+            },
+            CHANGE_WITHOUT_REPLACE = false -- true / false
+        }
+    }
 }
 
-spawn(function()
-    task.wait(30)  -- Change the wait time to 60 seconds (1 minute)
-    if not getgenv().scriptLoaded then
-        game.Players.LocalPlayer:Kick("Script load timeout\nKick to prevent animal gets stolen")
+task.spawn(function()
+    local LastCheck = tick()
+    while task.wait() do
+        if getgenv().ScriptLoaded then
+            break
+        end
+
+        pcall(function()
+            if LastCheck + 180 <= tick() then
+                game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+            end
+        end)
     end
 end)
 
--- Keep loading until Joebiden flag is set
-repeat
-    wait()
-    spawn(function()
-        loadstring(game:HttpGet("https://nousigi.com/loader.lua"))()
-    end)
-    wait(20)
-until getgenv().Joebiden
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/0e38c9f962f6e016372a764db6595b22.lua"))()
