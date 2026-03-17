@@ -1,15 +1,15 @@
-getgenv().Config = {
+ getgenv().Config = {
         Dashboard = {
             Enabled = false, -- Connect to Adopt Me dashboard To Control Script/View Stats (https://zekehub.com/dashboard/adoptme)
             GroupName = "vps1", -- Group name for organizing accounts on dashboard
         },
-        BabyFarm = true, -- Does baby farm
+        BabyFarm = false, -- Does baby farm
         PetFarm = {
-            Enabled = true, -- Enables the Pet Farm
-            FarmEggs = true, -- If true, equips eggs to hatch them. If false, equips regular pets
-            BuyEggs = true, -- If FarmEggs is true and no eggs in inventory, buy eggs automatically
-            EggTypes = {"cracked_egg"}, -- Which eggs to equip ({} = any egg, or {"cracked_egg", "royal_egg"} for specific)
-            BuyEggType = "cracked_egg", -- Which egg to buy when BuyEggs is true ("any" or specific egg ID)
+            Enabled = false, -- Enables the Pet Farm
+            FarmEggs = false, -- If true, equips eggs to hatch them. If false, equips regular pets
+            BuyEggs = false, -- If FarmEggs is true and no eggs in inventory, buy eggs automatically
+            EggTypes = {}, -- Which eggs to equip ({} = any egg, or {"cracked_egg", "royal_egg"} for specific)
+            BuyEggType = "any", -- Which egg to buy when BuyEggs is true ("any" or specific egg ID)
             MaxPets = 1, -- How many pets to equip at once (1 = free, 2 = requires Robux gamepass)
             FarmUntilFullGrown = false, -- If true, selects pets that aren't full grown first
             PrioritizeFriendship = false, -- If true, selects pets with higher friendship level first
@@ -43,8 +43,8 @@ getgenv().Config = {
             SelectedPets = {"lny_2026_fire_foal"}, -- Pet IDs to use potions on (empty = does nothing)
         },
         AutoBuy = {
-            Enabled = true, -- Automatically buy items from shops
-            SelectedItems = {"pets|pet_recycler_2025_crystal_egg"}, -- Item IDs to buy
+            Enabled = false, -- Automatically buy items from shops
+            SelectedItems = {}, -- Item IDs to buy
             BuyAmounts = {}, -- How many of each item to buy. Example: {5, 10} buys 5 cracked_eggs and 10 sandwiches. Empty {} buys infinite of each item. If there are more items than amounts, remaining items default to infinite.
         },
         AutoPay = {
@@ -52,30 +52,35 @@ getgenv().Config = {
             TargetPlayer = "", -- Username of player to pay bucks to
         },
         AutoOpen = {
-            Enabled = true, -- Open gift boxes, baits, etc automatically
-            Items = {"2d_tuesdays_2025_box"}, -- Item IDs to auto open
+            Enabled = false, -- Open gift boxes, baits, etc automatically
+            Items = {}, -- Item IDs to auto open
         },
         AutoRecycle = {
             Enabled = false, -- Toggle auto recycling on/off
             RarityFilter = {
-                common = {"regular", "neon", "mega"},
-                uncommon = {"regular", "neon", "mega"},
-                rare = {"regular", "neon", "mega"},
-                ultra_rare = {"regular", "neon", "mega"},
-                legendary = {"regular", "neon", "mega"},
+                -- Each rarity maps to a list of versions to recycle
+                -- Versions: "regular", "neon", "mega"
+                -- If a rarity is not listed or empty, pets of that rarity will NOT be recycled
+                -- If a rarity has versions listed, ONLY those versions will be recycled
+
+                -- common = {"regular", "neon", "mega"},  -- Recycle all common versions
+                -- uncommon = {"neon"},                    -- Only recycle neon uncommons
+                -- rare = {"regular", "neon", "mega"},     -- Recycle all rare versions
+                -- ultra_rare = {"regular", "neon", "mega"}, -- Recycle all ultra rare versions
+                -- legendary = {"mega"},                   -- Only recycle mega legendaries
             },
-            AgeFilter = {},
-            ExcludedPets = {"endangered_2026_silverback_gorilla", "pet_recycler_2025_giant_panda", "penguins_2025_dango_penguins", "food_pets_2026_dragonfruit_fox", "admin_abuse_egg_2026_robot_chicken", "2d_tuesdays_2025_2d_kitty"},
+            AgeFilter = {}, -- Empty = all ages, or specific ages e.g. {1, 2, 3, 4, 5, 6} (1=Newborn, 6=Full Grown)
+            ExcludedPets = {}, -- Pet IDs to never recycle e.g. {"dog", "cat", "shadow_dragon"}
         },
         IdleProgression = {
-            Enabled = true, -- Put pets in pet pen for idle leveling
-            SelectedPets = {}, -- Pet IDs to put in pet pen (empty = use all)
+            Enabled = false, -- Put pets in pet pen for idle leveling
+            SelectedPets = {"cracked_egg"}, -- Pet IDs to put in pet pen (empty = use all)
             ExcludedPets = {}, -- Pet IDs to never put in pet pen
             PriorityOrder = {}, -- Order: first = highest priority for pen slots (e.g. {"neon", "regular", "mega"})
         },
         AccountManager = {
             Enabled = false, -- Master toggle for account management
-            Tool = "yummy", -- "yummy", "farmsync"
+            Tool = "", -- "yummy", "farmsync"
             Yummy = {
                 Action = "completed", -- "completed" = remove cookie/stop, "swap" = next cookie
                 Reason = "Done", -- Suffix for completed file (Completed-{Reason})
@@ -94,10 +99,10 @@ getgenv().Config = {
             },
         },
         Settings = {
-            AutoShowUI = false, -- Load the UI on script start (main overlay disable for less memory usage)
-            ShowOverlay = true, -- Show stats overlay (disables 3D rendering)
-            ReduceGraphics = true, -- Reduce graphics quality to minimum
-            FPSCap = 15, -- FPS cap option (0 = uncapped)
+            AutoShowUI = true, -- Load the UI on script start (main overlay disable for less memory usage)
+            ShowOverlay = false, -- Show stats overlay (disables 3D rendering)
+            ReduceGraphics = false, -- Reduce graphics quality to minimum
+            FPSCap = 0, -- FPS cap option (0 = uncapped)
             LureId = "ice_dimension_2025_ice_soup_bait" -- what lure to use for example: "ice_dimension_2025_ice_soup_bait"
         },
         Webhook = {
