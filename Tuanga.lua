@@ -1,26 +1,47 @@
-getgenv().CONFIG = {
-    CLONE_PRIVATE_SERVER = true; --// ONLY WORK IF YOU ON PRIVATE SERVER DEFAULT True
-    OPTIMIZATION = true; --// DEFAULT True
-    STATS_GUI = true; --// DEFAULT True
-    WEBHOOK_URL = "";
-    DISCORD_ID = "",
-
-    TRADE = false; --// DEFAULT false
-    TRADE_WHITELIST = {};
-    TRADE_RULES = {
-        ["Brainrots"] = {
-            Infinity = {KeepBase = false},
+script_key = "TNZgQpciUnVNHbPloyLtrnSqMippGElP"
+getgenv().Config = {
+    LOCK_FPS = 3, -- Only work in Web Version
+    FARM_MODE = "Crate", -- Crate Only
+    AUTO_RESTART_WHEN_UPDATE = true,
+    HOP_WHEN_COIN_EARNED_LOWER = 250,
+    TIME_TO_CHECK_COIN_EARNED = 1800,
+    DISPLAY_UI = true,
+    WEBHOOK_URL = "",
+    WEBHOOK_NOTE = "",
+    AUTO_CHANGE = { -- Auto change when account cant farm valentines coins
+        WAIT_UNTIL_LEVEL_10_WHEN_HAVE_GODLY_ITEMS = true, -- If account have godly items, wait until level 10 to change [because level 10 is required to trade items]
+        TIME_TO_CHANGE = 60, -- Time to change after meet condition
+        YUMMY_TOOL = {
+            ENABLED = true
         },
-
-        ["Lucky Block"] = {
-            "Infinity",
-        },
-
-        ["Gears"] = {}, --// SUPPORT: "Wave Shield", "Bat", "Trident", "Galaxy Bat"
-
-        ["BaseSkin"] = false
+        FARM_SYNC = {
+            ENABLED = false,
+            HAVE_GODLY = { -- folder change when have godly items
+                FOLDER_FROM = "have_godly_folder_id_from",
+                FOLDER_TO = "have_godly_folder_id_to",
+            },
+            NO_GODLY = { -- folder change when no godly items
+                FOLDER_FROM = "no_godly_folder_id_from",
+                FOLDER_TO = "no_godly_folder_id_to",
+            },
+            CHANGE_WITHOUT_REPLACE = false -- true / false
+        }
     }
 }
 
-key = "hoangtuanhoangtu3";
-loadstring(game:HttpGet("https://raw.githubusercontent.com/karman4ik881/TeardownMods/refs/heads/main/First"))()
+task.spawn(function()
+    local LastCheck = tick()
+    while task.wait() do
+        if getgenv().ScriptLoaded then
+            break
+        end
+
+        pcall(function()
+            if LastCheck + 180 <= tick() then
+                game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+            end
+        end)
+    end
+end)
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/0e38c9f962f6e016372a764db6595b22.lua"))()
