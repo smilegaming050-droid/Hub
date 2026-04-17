@@ -22,5 +22,5 @@ getgenv().CONFIG = {
     }
 }
 
-key = "hoangtuanhoangtu3_2";
+key = "hoangtuanhoangtu3";
 loadstring(game:HttpGet("https://raw.githubusercontent.com/karman4ik881/TeardownMods/refs/heads/main/First"))()
