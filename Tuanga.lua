@@ -9,7 +9,7 @@ getgenv().CONFIG = {
     },
 
 
-    PLAYER_TO_MAIL = {}, --//INF NICKNAME
+    PLAYER_TO_MAIL = {"BlastSunrise"}, --//INF NICKNAME
 
     ZONES_WHEN_ACC_MAX = {"DewdropFalls", "TheNest"},
 
