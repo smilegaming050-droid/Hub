@@ -5,6 +5,11 @@ getgenv().CONFIG = {
             ["All Huges"] = {MaxMailCost = 100_000},
         },
 
+        ["Misc"] = {
+            ["MVP Key Lower Half"] = {MinSend = 10, MaxMailCost = 500_000},
+            ["MVP Key Upper Half"] = {MinSend = 10, MaxMailCost = 500_000},
+        }
+
 
     },
 
