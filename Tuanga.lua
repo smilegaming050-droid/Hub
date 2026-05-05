@@ -9,10 +9,10 @@ task.spawn(function()
 end)
 spawn(function()
     _G.Config = { 
-        UserID = "",
+        UserID = "3f3fb26b-c3b5-4cd2-b7e3-4f8bba14fe23",
         discord_id = "765845940074053633" ,
         Note = "sabiudau", } 
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/skadidau/yummytrack/main/tracker"))()
+    loadstring(game:HttpGet("https://cdn.yummydata.click/scripts/sab"))()
 end)
 getgenv().Key = "k939795a53129bed99f487fa"
 getgenv().Config = {
