@@ -2,7 +2,7 @@ setfpscap(5)
 script_key = "eWFyRNEvzKElQinNBYTjrpJIZEOixLsZ";
 getgenv().UserConfig = {
     ["Webhook URL"] = "https://discord.com/api/webhooks/1420694714423705640/k6Bf2AaSaHHScKSyH0HMgGxbRxszIFwBs5BZ3QmI8wINHi2VF8n3xV342ITrQuk1zESE",
-    ["Webhook Ping"] = {"Huge", "Titanic", "Gargantuan", "Normal"}, -- xoa normal de khong spam webhook
+    ["Webhook Ping"] = {"Huge", "Titanic", "Gargantuan"}, -- xoa normal de khong spam webhook
     ["Webhook Note"] = "Pet99",
     ["Discord ID"] = "765845940074053633",
 }
