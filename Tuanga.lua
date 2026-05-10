@@ -1,3 +1,4 @@
+setfpscap(5)
 key = "hoangtuanhoangtu3";
 getgenv().CONFIG = {
     ITEMS_TO_MAIL = {
